@@ -1,4 +1,4 @@
-﻿import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { runOrchestrator } from "@/lib/ai/core/orchestrator";
 
 export async function POST(req: NextRequest) {
@@ -23,7 +23,6 @@ export async function POST(req: NextRequest) {
       text,
       skipClarification,
       environmentScore,
-      geminiCheck,
     );
 
     return NextResponse.json(analysis);
