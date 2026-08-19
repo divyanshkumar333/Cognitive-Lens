@@ -1,4 +1,5 @@
-﻿import OpenAI from "openai";
+import "server-only";
+import OpenAI from "openai";
 
 export const openai = new OpenAI({
   apiKey: process.env.GROQ_API_KEY,
