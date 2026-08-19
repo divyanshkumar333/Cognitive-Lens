@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    body {
+      width: 260px;
+      font-family: -apple-system, sans-serif;
+      padding: 16px;
+      margin: 0;
+    }
+    h3 {
+      margin: 0 0 14px;
+      font-size: 15px;
+    }
+    .cl-row {
+      margin-bottom: 16px;
+    }
+    .cl-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .cl-btn-group {
+      display: flex;
+      gap: 6px;
+    }
+    .cl-btn-group button {
+      flex: 1;
+      padding: 6px 0;
+      border: 1px solid #ccc;
+      background: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .cl-btn-group button.active {
+      background: #d99a4e;
+      color: white;
+      border-color: #d99a4e;
+    }
+    .cl-toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cl-toggle-row span {
+      font-size: 13px;
+    }
+    .cl-switch {
+      position: relative;
+      width: 40px;
+      height: 22px;
+    }
+    .cl-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .cl-slider {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background-color: #ccc;
+      border-radius: 999px;
+      transition: 0.2s;
+    }
+    .cl-slider:before {
+      content: "";
+      position: absolute;
+      height: 16px;
+      width: 16px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      border-radius: 50%;
+      transition: 0.2s;
+    }
+    input:checked + .cl-slider {
+      background-color: #d99a4e;
+    }
+    input:checked + .cl-slider:before {
+      transform: translateX(18px);
+    }
+  </style>
+</head>
+<body>
+  <h3>Cognitive Lens Settings</h3>
+
+  <div class="cl-row">
+    <span class="cl-label">Font Size</span>
+    <div class="cl-btn-group" id="fontSizeGroup">
+      <button data-size="normal">A</button>
+      <button data-size="large">A+</button>
+      <button data-size="xlarge">A++</button>
+    </div>
+  </div>
+
+  <div class="cl-row cl-toggle-row">
+    <span>Dyslexia-friendly font</span>
+    <label class="cl-switch">
+      <input type="checkbox" id="dyslexicToggle" />
+      <span class="cl-slider"></span>
+    </label>
+  </div>
+
+  <div class="cl-row cl-toggle-row">
+    <span>High contrast mode</span>
+    <label class="cl-switch">
+      <input type="checkbox" id="contrastToggle" />
+      <span class="cl-slider"></span>
+    </label>
+  </div>
+
+  <div class="cl-row">
+    <span class="cl-label">Read Page Aloud</span>
+    <button id="readAloudBtn" style="width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;background:#d99a4e;color:white;font-size:13px;cursor:pointer;">Start Reading</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
+

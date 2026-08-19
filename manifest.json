@@ -1,0 +1,35 @@
+﻿{
+  "manifest_version": 3,
+  "name": "Cognitive Lens",
+  "version": "0.1.0",
+  "description": "AI cognitive interface layer that restructures information for easier understanding.",
+  "permissions": ["activeTab", "storage", "scripting", "tabs"],
+  "host_permissions": ["<all_urls>", "http://localhost:3000/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Cognitive Lens"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "focusMode.js",
+        "loader.js",
+        "stickyNote.js",
+        "pageAnalyzer.js",
+        "transform.js",
+        "content.js"
+      ],
+      "css": ["overlay.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["inject.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

@@ -1,0 +1,376 @@
+﻿@import "tailwindcss";
+
+@theme {
+  --color-paper: #fdf1ea;
+  --color-paper-deep: #fbe9de;
+  --color-ink: #2b2f2a;
+  --color-ink-soft: #8a7e72;
+  --color-terracotta: #c97b6e;
+  --color-terracotta-soft: #e8a698;
+  --color-sage: #5a6b52;
+  --color-sage-deep: #3f4a3a;
+  --color-dusty: #8fa8b8;
+  --color-amber: #e0a458;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:
+    "DM Sans",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background: #fdf1ea;
+  color: #2b2f2a;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: "Fraunces", Georgia, serif;
+  font-feature-settings: "ss01", "ss02";
+  font-weight: 500;
+}
+.font-mono {
+  font-family: "JetBrains Mono", monospace;
+}
+
+.paper-bg {
+  background-color: #fdf1ea;
+  background-image: radial-gradient(
+    120% 80% at 20% 0%,
+    #fce5d8 0%,
+    #fdf1ea 45%,
+    #fdeae0 100%
+  );
+}
+
+.soft-card {
+  border-radius: 20px;
+  box-shadow:
+    0 4px 20px rgba(43, 47, 42, 0.06),
+    0 1px 3px rgba(43, 47, 42, 0.04);
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(200, 160, 140, 0.25);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(200, 160, 140, 0.45);
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.7;
+  }
+}
+.breathe {
+  animation: breathe 8s ease-in-out infinite;
+}
+
+@keyframes breathe-slow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 1;
+  }
+}
+.breathe-slow {
+  animation: breathe-slow 4s ease-in-out infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-up {
+  animation: fade-up 0.5s ease-out both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rise {
+  animation: rise 0.6s ease-out both;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+.blink {
+  animation: blink 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+.pulse-dot {
+  animation: pulse-soft 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .breathe,
+  .breathe-slow,
+  .fade-up,
+  .rise,
+  .blink,
+  .pulse-dot {
+    animation: none !important;
+  }
+}
+
+:root {
+  --cl-bg: #fdf1ea;
+  --cl-rose: #e8a698;
+  --cl-green: #5a6b52;
+  --cl-text: #2b2f2a;
+  --cl-amber: #e0a458;
+  --cl-glass-bg: rgba(255, 255, 255, 0.55);
+  --cl-glass-border: rgba(90, 107, 82, 0.14);
+}
+
+.cl-canvas {
+  background: var(--cl-bg);
+  background-image: radial-gradient(
+    120% 80% at 20% 0%,
+    #fce5d8 0%,
+    #fdf1ea 45%,
+    #fdeae0 100%
+  );
+  min-height: 100vh;
+  transition: filter 0.6s ease;
+}
+
+.cl-glass {
+  background: var(--cl-glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--cl-glass-border);
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(43, 47, 42, 0.06);
+  transition:
+    backdrop-filter 0.6s ease,
+    background 0.6s ease;
+}
+
+.cl-glass-gap {
+  background: rgba(253, 233, 222, 0.65);
+  border: 1.5px solid var(--cl-amber);
+}
+
+@keyframes cl-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0px rgba(224, 164, 88, 0);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(224, 164, 88, 0.5);
+  }
+}
+.cl-gap-pulse {
+  animation: cl-pulse 2.2s ease-in-out infinite;
+}
+
+[data-env="cluttered"] .cl-glass {
+  backdrop-filter: blur(24px);
+  background: rgba(255, 255, 255, 0.7);
+}
+[data-env="cluttered"] .cl-gap-pulse {
+  animation-duration: 3.2s;
+}
+
+.cl-env-strip {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 10px 16px;
+  margin: 0 auto;
+  max-width: 768px;
+}
+.cl-env-bar-track {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(90, 107, 82, 0.14);
+  overflow: hidden;
+}
+.cl-env-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition:
+    width 0.6s ease,
+    background 0.6s ease;
+}
+/* ===== Cognitive Lens design mockup (/design route) ===== */
+
+:root {
+  --cream: #fdf1ea;
+  --cream-soft: #fbe9de;
+  --blush: #f7d6cb;
+  --blush-soft: #fce3d8;
+  --rose: #e8a698;
+  --rose-deep: #c97b6e;
+  --sage: #3f4a3a;
+  --sage-soft: #5a6b52;
+  --ink: #2b2f2a;
+  --muted: #8a7e72;
+  --line: #e9d9cc;
+  --leaf: #c0b299;
+}
+
+.font-serif {
+  font-family: "Fraunces", Georgia, serif;
+  font-feature-settings: "ss01", "ss02";
+}
+
+.font-sans {
+  font-family:
+    "DM Sans",
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+/* Ambient gradient orbs */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* Soft fade in */
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.7;
+  }
+}
+.breathe {
+  animation: breathe 8s ease-in-out infinite;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rise {
+  animation: rise 0.6s ease-out both;
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+.pulse-dot {
+  animation: pulse-soft 2.4s ease-in-out infinite;
+}
+
+@keyframes breathe-fast {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+.breathe-fast {
+  animation: breathe-fast 2.4s ease-in-out infinite;
+}
+
+@keyframes sweep-fade {
+  0% { opacity: 0; }
+  30% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.sweep-fade {
+  animation: sweep-fade 0.9s ease-out;
+}
+@keyframes pulse-fast {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.4); }
+}
+.pulse-fast {
+  animation: pulse-fast 0.8s ease-in-out infinite;
+}

@@ -1,0 +1,134 @@
+/* ==========================================================
+   Cognitive Lens
+   Inline Reading Interface
+   ========================================================== */
+
+#cognitive-lens-summary {
+  background: #fff8e8;
+
+  border: 1px solid #e7dfc8;
+
+  border-radius: 18px;
+
+  padding: 28px;
+
+  margin: 0 0 42px 0;
+
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+
+  animation: clFade 0.45s ease;
+}
+
+.cl-summary-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 22px;
+}
+
+.cl-summary-header h2 {
+  margin: 0;
+
+  font-size: 24px;
+
+  font-weight: 700;
+
+  color: #222;
+}
+
+.cl-status {
+  background: #ddf8e7;
+
+  color: #177245;
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+.cl-summary-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+.cl-card {
+  background: white;
+
+  border-radius: 14px;
+
+  padding: 18px;
+
+  border: 1px solid rgba(0, 0, 0, 0.05);
+
+  transition: 0.25s;
+}
+
+.cl-card:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.cl-card h4 {
+  margin: 0 0 10px;
+
+  font-size: 12px;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  color: #777;
+}
+
+.cl-card p {
+  margin: 0;
+
+  line-height: 1.65;
+
+  color: #222;
+
+  font-size: 15px;
+}
+
+@keyframes clFade {
+  from {
+    opacity: 0;
+
+    transform: translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .cl-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #cognitive-lens-summary {
+    padding: 20px;
+  }
+
+  .cl-summary-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 10px;
+  }
+}
