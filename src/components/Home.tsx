@@ -1,6 +1,6 @@
 "use client";
 
-import { Brain } from "lucide-react";
+import { Brain, Sparkles } from "lucide-react";
 import CognitiveScanCard from "./CognitiveScanCard";
 import EnvironmentalCard from "./EnvironmentalCard";
 

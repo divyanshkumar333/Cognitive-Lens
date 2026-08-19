@@ -1,7 +1,7 @@
-﻿"use client";
+"use client";
 
 import type { ReactNode } from "react";
-import type { PageId } from "../App";
+import type { PageId } from "./App";
 
 type Item = { id: PageId; label: string; icon: ReactNode };
 

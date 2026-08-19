@@ -1,4 +1,4 @@
-﻿import { routeInput } from "../agents/router";
+import { routeInput } from "../agents/router";
 import { analyzeStructure } from "../agents/structure";
 import { analyzeEnvironment } from "../agents/environment";
 import {
@@ -76,7 +76,7 @@ export async function runOrchestrator(
 
   const structure = result.structure as {
     mainIdeas?: string[];
-    sections?: unknown[];
+    sections?: string[];
   } | null;
 
   const isLearning = decision?.taskType === "learning";
@@ -135,6 +135,7 @@ export async function runOrchestrator(
     inputType?: string;
     estimatedComplexity?: string;
     mainIdeas?: string[];
+    sections?: string[];
   } | null;
   const finalDecision = result.decision as {
     nextAction?: string;

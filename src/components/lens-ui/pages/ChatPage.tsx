@@ -1,7 +1,7 @@
-﻿"use client";
+"use client";
 
 import { useState, useRef, useEffect } from "react";
-import type { PageId } from "./App";
+import type { PageId } from "../App";
 import { useMode } from "@/context/ModeContext";
 
 type Msg = { from: "user" | "lens"; text: string };
